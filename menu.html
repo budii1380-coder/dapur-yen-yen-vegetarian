@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu - Dapur Yen Yen Vegetarian</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* HEADER DENGAN FOTO KULINER */
+        header {
+            background: linear-gradient(
+                rgba(0,0,0,0.6),
+                rgba(0,0,0,0.6)
+            ),
+            url("Capcai.jpeg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+        }
+
+        /* MENU */
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 20px;
+        }
+
+        .item {
+            background: white;
+            width: 220px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        .item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .item h3 {
+            color: #4CAF50;
+            margin-top: 10px;
+        }
+
+        .back {
+            display: inline-block;
+            margin: 20px 0;
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        /* NOTE */
+        .note {
+            background-color: white;
+            margin: 20px auto 40px;
+            padding: 20px;
+            max-width: 700px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; 
+            left: 0;
+            width: 100%; 
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 400px;
+        }
+
+        .close {
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <h1>Menu Makanan Vegetarian</h1>
+    <p>Klik menu untuk melihat deskripsi makanan</p>
+</header>
+
+<!-- DAFTAR MENU -->
+<div class="menu">
+
+    <div class="item" onclick="showInfo('Capcai', 'Capcai berisi aneka sayuran segar yang kaya serat dan vitamin.')">
+        <img src="Capcai.jpeg" alt="Capcai">
+        <h3>Capcai</h3>
+    </div>
+
+    <div class="item" onclick="showInfo('Kwetiau Goreng', 'Kwetiau goreng vegetarian dengan bumbu rumahan.')">
+        <img src="Kwetiau Goreng.jpeg" alt="Kwetiau Goreng">
+        <h3>Kwetiau Goreng</h3>
+    </div>
+
+    <div class="item" onclick="showInfo('Labu Tumis Telor & Wortel', 'Menu sehat dari labu, wortel, dan telur.')">
+        <img src="Labu Tumis Telor & Wortel.jpeg" alt="Labu Tumis Telor & Wortel">
+        <h3>Labu Tumis Telor & Wortel</h3>
+    </div>
+
+    <div class="item" onclick="showInfo('Perkedel Kentang', 'Perkedel kentang gurih sebagai lauk pendamping.')">
+        <img src="Perkedel Kentang.jpeg" alt="Perkedel Kentang">
+        <h3>Perkedel Kentang</h3>
+    </div>
+
+    <div class="item" onclick="showInfo('Pokcoy Tumis', 'Pokcoy tumis segar dan rendah kalori.')">
+        <img src="Pokcoy Tumis.jpeg" alt="Pokcoy Tumis">
+        <h3>Pokcoy Tumis</h3>
+    </div>
+
+    <div class="item" onclick="showInfo('Sop Pare', 'Sop pare dengan rasa khas dan manfaat kesehatan.')">
+        <img src="Sop Pare.jpeg" alt="Sop Pare">
+        <h3>Sop Pare</h3>
+    </div>
+
+    <div class="item" onclick="showInfo('Tofu', 'Tofu sebagai sumber protein nabati.')">
+        <img src="TOFU.jpeg" alt="Tofu">
+        <h3>Tofu</h3>
+    </div>
+
+    <div class="item" onclick="showInfo('Tumis Kangkung', 'Tumis kangkung segar dengan cita rasa rumahan.')">
+        <img src="Tumis Kangkung.jpeg" alt="Tumis Kangkung">
+        <h3>Tumis Kangkung</h3>
+    </div>
+
+</div>
+
+<!-- NOTE / CATATAN -->
+<div class="note">
+    <p>
+        <strong>Catatan:</strong><br>
+        Untuk request pemesanan makanan atau menu lainnya bisa langsung klik
+        link WhatsApp di atas.<br>
+        Selamat menikmati makanan <strong>Dapur Yen Yen Vegetarian</strong> 😊
+    </p>
+</div>
+
+<a href="index.html" class="back">⬅ Kembali ke Company Profile</a>
+
+<!-- MODAL POPUP -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h3 id="title"></h3>
+        <p id="text"></p>
+        <button class="close" onclick="closeModal()">Tutup</button>
+    </div>
+</div>
+
+<script>
+    function showInfo(title, text) {
+        document.getElementById("title").innerText = title;
+        document.getElementById("text").innerText = text;
+        document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
